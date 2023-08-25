@@ -1,0 +1,180 @@
+.cabecalho__menu-hamburguer {
+    width: 24px;
+    height :48px;
+    background-image: url("../img/Menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+}
+
+.container__botao:checked~.container__rotulo >.cabecalho__menu-hamburguer {
+    background-image: url("../img/Menu Aberto.svg");
+}
+
+.container__botao:checked~.container__rotulo {
+    background: var(--azul-degrade);
+}
+
+.cabecalho {
+    background-color: var(--branco);
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    /* para posicionar o menu hamburguer corretamente, este comando libera para serem utilizados outros parâmetros de posicionamento */
+    position:relative;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container__imagem {
+    padding: 1em;
+}
+
+.lista__menu {
+    /* para a a lista do menu não apareça automaticamente */
+    display: none;
+    /* para posicionamento do menu hamburguer, permite movimentar o elemento */
+    position: absolute;
+    top: 100%; /* joga o menu pra baixo do ícone */
+    width: 60vw;
+}
+
+.container__botao:checked ~ .lista__menu {
+    /* para fazer o menu aparecer apenas quando houver o click; o ~ é um elemento combinador entre os elementos; funciona como uma espécie de IF, se o botao estiver checked, procura a lista__menu e aplica o display:block  */
+    display:block;
+}
+
+.lista__menu__titulo, .lista__menu__item {
+    padding: 1em;
+    background-color: var(--branco);
+}
+
+.lista__menu__titulo {
+    color: var(--laranja);
+    font-weight: 700;
+}
+
+.lista__menu__link {
+    background: var(--azul-degrade);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+
+.contato__email:focus {
+    background-color: green;
+}
+
+.container__botao {
+    display: none;
+}
+
+.container__titulo {
+    display:none;
+}
+
+.opçoes {
+    display: none;
+}
+
+.container__texto {
+    display: none;
+}
+
+/* para telas a partir de 1024px, tablets, aplica o definido abaixo dentro da @media screen*/
+@media screen and (min-width: 1024px) {
+    .container__titulo, .container__titulo--negrito {
+        font-family: var(--fonte-secundaria);
+        font-size: 30px;
+    }  
+    .container__titulo {
+        font-weight: 400;
+        display: block;
+    }
+
+    .container__titulo--negrito {
+        font-weight: 700;
+    }
+
+    .opçoes {
+        display:flex;
+    }
+
+    .opçoes__item {
+        padding: 0 1em;
+        text-transform: uppercase;
+    }
+
+    .opçoes__link {
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .container__imagem-transparente {
+        display: none;
+    }
+
+    .cabecalho__menu-hamburguer {
+        display: none;
+    }
+
+    /* para o menu aparecer corretamente quando for tablet, inclusive o tamanho */
+    .opçoes__botao:checked ~ .lista__menu {
+        display:block;
+        width:auto;
+    }
+
+    .opçoes__botao {
+        display: none;
+    }
+
+    .opçoes__botao:checked~.opçoes__rotulo>.opçoes__item {
+        background: var(--azul-degrade);
+        color: var(--branco);
+    }
+
+    .opçoes__item {
+        /* preenche o menu clicado com o a cor definida */
+        padding: 1em 2em;
+    }
+
+    .lista__menu__item:hover {
+        background: var(--azul-degrade);
+    }
+
+    .lista__menu__item:hover > .lista__menu__link {
+        -webkit-text-fill-color: var(--branco);
+        text-decoration: none;
+    }
+    
+}
+
+@media screen and (min-width: 1728px) {
+    .container__link {
+        display:flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .cabecalho {
+        padding: 0 2em;
+    }
+
+    .opçoes {
+        margin-right: auto;
+    }
+
+    .container__texto {
+        display:block;
+    }
+
+    .container__link:active {
+        color: var(--branco);
+        background-color: red;
+    }
+}
